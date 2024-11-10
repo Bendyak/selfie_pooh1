@@ -42,7 +42,7 @@ class MainActivity : Activity() {
 
         sendButton.setOnClickListener {
             photoUri?.let { uri -> sendEmail(uri) } ?: run {
-                Toast.makeText(this, "Зробіть селфі перед надсиланням!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Зробіть селфі перш ніж надсилати!", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -84,7 +84,7 @@ class MainActivity : Activity() {
             putExtra(Intent.EXTRA_STREAM, photoUri)
             addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         }
-        startActivity(Intent.createChooser(emailIntent, "Виберіть додаток для надсилання"))
+        startActivity(Intent.createChooser(emailIntent, "Оберіть Gmail для надсилання"))
     }
 
     companion object {
